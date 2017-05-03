@@ -14,10 +14,19 @@ export class BrowserEventExperimentsComponent implements OnInit {
     this.hoverSection = document.getElementById('hover');
 
     // Fat arrow is used for defining a callback
-    this.hoverSection.addEventListener('mousemove', ev => {
-      console.log(ev);
-    });
+    this.hoverSection.addEventListener('mousemove', onMouseMove);
 
   }
 
+  unsubscribe() {
+    console.log('Clicked unsubscribe()');
+
+    this.hoverSection.removeEventListener('mousemove', onMouseMove);
+  }
+
+
+}
+
+function onMouseMove(ev: MouseEvent) {
+  console.log(ev);
 }
